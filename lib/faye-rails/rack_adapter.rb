@@ -19,6 +19,12 @@ module FayeRails
       end
     end
 
+    def stop
+      return unless @thin_server
+      @thin_server.stop
+      @thin_server = nil
+    end
+
     # Rudimentary routing support for channels to controllers.
     #
     # @param opts
